@@ -5,6 +5,11 @@ from django.utils import timezone
 
 # Create your models here.
 class Post(models.Model):
+
+    class Status(models.TextChoices):
+        DRAFT = 'DF', 'Draft'
+        PUBLISHED = 'PB', 'Published'
+
     title = models.CharField(
         max_length=155,
         verbose_name='Title'
@@ -32,6 +37,12 @@ class Post(models.Model):
     updated = models.DateTimeField(
         auto_now=True,
         verbose_name='Updated date'
+    )
+
+    status = models.CharField(
+        max_length=2,
+        choices=Status,
+        default=Status.DRAFT
     )
 
     class Meta:

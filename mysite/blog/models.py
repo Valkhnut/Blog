@@ -24,7 +24,8 @@ class Post(models.Model):
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='blog_posts'
+        related_name='blog_posts',
+        verbose_name='Author',
     )
 
     body = models.TextField(

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 from django.utils import timezone
 
@@ -18,6 +19,12 @@ class Post(models.Model):
     slug = models.SlugField(
         max_length=250,
         verbose_name='SLUG'
+    )
+
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='blog_posts'
     )
 
     body = models.TextField(

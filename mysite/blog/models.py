@@ -4,6 +4,8 @@ from django.urls import reverse
 
 from django.utils import timezone
 
+from taggit.managers import TaggableManager
+
 
 # Create your models here.
 class PublishedManager(models.Manager):
@@ -60,6 +62,8 @@ class Post(models.Model):
         default=Status.DRAFT,
         verbose_name='Status'
     )
+
+    tags = TaggableManager()
 
     objects = models.Manager()
     published = PublishedManager()

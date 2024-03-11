@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',     # system
     'django.contrib.sitemaps',      # system
+    'django.contrib.postgres',  # system
+
     'taggit',               # 3rd part
+
     'blog.apps.BlogConfig',  # local
 ]
 
@@ -82,8 +85,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'your_password',
     }
 }
 
@@ -133,7 +138,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Email server configuration
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'djangosite.test.mailler@gmail.com'
-EMAIL_HOST_PASSWORD = 'ingd dljn ohhm ymmw'
+EMAIL_HOST_USER = 'your_mail_login'
+EMAIL_HOST_PASSWORD = 'your_mail_password'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
